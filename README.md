@@ -5,17 +5,13 @@ Tech Stack:
 
   Python Frameworks:
     Kivy
-    Tkinter
-    Uvicorn
+    KivyMD
+
     
   DataBase:
     MongoDB
     Postgres(Docker Conteiner)
     
-  Deploy:
-    AWS(EC2)
-    Azure
-
 Os fluxogramas serão inseridos ainda.
 
 
