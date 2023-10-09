@@ -4,6 +4,7 @@ ScreenManager:
     RegisterScreen:
     ForgetSenhaScreen:
     DashboardScreen: 
+    CourseScreen:
 
 <SplashScreen>:
     name: 'splash'    
@@ -284,7 +285,7 @@ ScreenManager:
             text: "Voltar"
             font_size: "18sp"
             font_name: "Poppins-Regular.ttf"
-            pos_hint: {"center_x": .615, "center_y": .949}  
+            pos_hint: {"center_x": .615, "center_y": .949} 
             
         MDLabel:
             text: "Esqueceu a senha?"
@@ -304,7 +305,7 @@ ScreenManager:
             size_hint: .79, .08
             pos_hint: {"center_x": .5, "center_y": .5}   
             MDLabel:
-                text:"CPF"
+                text: "E-mail"
                 font_size: "14sp"
                 font_name: "Poppins-Medium.ttf"
                 pos_hint: {"center_x": .5, "center_y": 3.85} 
@@ -366,35 +367,51 @@ ScreenManager:
 
 <DashboardScreen>:
     name: 'dashboard'
-    MDBoxLayout:
-        md_bg_color: 245,245,245,1
-        orientation:'vertical'
-        MDIconButton:
-            icon:"images/logo.png"
-            size_hint: .80, .60
-            pos_hint: {"center_x": .5, "center_y": .8}
-    
-        
+    MDFloatLayout:
+        md_bg_color: 245, 245, 245,1
+        Image:
+            source: "images/logo.png"
+            size_hint: .9, .9
+            pos_hint: {"center_x": .52, "center_y": .85}     
+
+        MDLabel:
+            text: "ProtegeMais"   
+            pos_hint: {"center_x": .525, "center_y": .7}       
+            halign: "center"
+            theme_text_color: "Custom"
+            text_color: 0, 0, 0
+            font_size:"20sp"
+            font_name: "Poppins-SemiBold.ttf"
+
+        MDLabel:
+            text: "Categorias de Fraude"   
+            pos_hint: {"center_x": .5, "center_y": .6}       
+            halign: "center"
+            theme_text_color: "Custom"
+            text_color: 0, 0, 0
+            font_size:"20sp"
+            font_name: "Poppins-SemiBold.ttf"
+
         MDGridLayout:
-            size_hint_y:.75
+            size_hint_y:.55
             cols:2
             padding:[dp(15),dp(15),dp(15),dp(35)]
-            spacing:dp(15)
+            spacing:dp(13)
             ElementCard:
                 text:"Email"
-                on_press: app.root.current = 'login' 
+                on_press: app.root.current = 'curso' 
                 
             ElementCard:
                 text:"Sites Falsos"
-                on_press: app.root.current = 'login' 
-               
+                on_press: app.root.current = 'curso' 
+                
             ElementCard:
                 text:"Redes Sociais"
-                on_press: app.root.current = 'login' 
+                on_press: app.root.current = 'curso' 
 
             ElementCard:
-                text:"E-mail"
-                on_press: app.root.current = 'login'  
+                text:"Telefone e SMS"
+                on_press: app.root.current = 'curso'  
 
 <ElementCard@MDCard>:
     md_bg_color: 120/255, 173/255, 173/255, 1
@@ -422,4 +439,17 @@ ScreenManager:
         MDLabel:
             halign:"center"
             text:root.items_count
+
+<CourseScreen>:
+    name: 'curso'
+    MDBoxLayout:
+        spacing: 10
+        padding: 20
+        orientation: "horizontal"
+        Video:
+            source: "videos/teste.mp4"
+            state: "play"
+            options: {'eos': 'pause'}
+            allow_stretch: True
+            
 

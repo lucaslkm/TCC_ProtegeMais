@@ -1,14 +1,16 @@
 from kivymd.app import MDApp
 from kivymd.uix.screen import Screen
-from kivymd.uix.button import MDRaisedButton
+from kivy.uix.video import Video
 from kivy.lang import Builder
-from helpers import username_helper
 from kivy.uix.screenmanager import Screen, ScreenManager
 from kivy.core.window import Window
 
-Window.size = (350, 580)
+Window.size = (325, 580)
 
 screen = ScreenManager()
+
+
+
 
 class SplashScreen(Screen):
     pass
@@ -26,6 +28,18 @@ class ForgetSenhaScreen(Screen):
 
 class DashboardScreen(Screen):
    pass
+
+
+class CourseScreen(Screen):
+   pass
+   """def video(self):
+    player = Video(source = "videos/teste.mp4")
+    player.state = 'play'
+    player.options = {'eos':'loop'}
+    player.allow_fullscreen = True
+    return player"""
+    
+
 class ProtegeMaisApp(MDApp):
 
   def build(self):
