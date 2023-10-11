@@ -9,7 +9,7 @@ Tech Stack:
 
     
   DataBase:
-    MongoDB ou Postgres(Docker Conteiner)
+    MongoDB ou SQLite(Docker Conteiner)
     
 Os fluxogramas serão inseridos ainda.
 
