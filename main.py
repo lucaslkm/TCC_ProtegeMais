@@ -32,12 +32,6 @@ class DashboardScreen(Screen):
 
 class CourseScreen(Screen):
    pass
-   """def video(self):
-    player = Video(source = "videos/teste.mp4")
-    player.state = 'play'
-    player.options = {'eos':'loop'}
-    player.allow_fullscreen = True
-    return player"""
     
 
 class ProtegeMaisApp(MDApp):
