@@ -5,8 +5,6 @@
 
 <h1 align="center">
    <img 
-         width="350"
-         height="580"
          src= "images/logo.png" 
    >    
 </h1>
