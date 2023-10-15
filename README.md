@@ -1,16 +1,14 @@
 ## *PT-BR*
 
 # TCC_ProtegeMais
-## Este repositório servirá para o desenvolvimento do nosso protótipo de aplicativo educativo ProtegeMais, o qual tem intuito de ensinar pessoas a como identificar indicadores de fraude ou golpe  durante uma conversa ou interagindo com tecnologia como e-mail, mensagens, etc.
-
 <h1 align="center">
    <img 
          src= "images/logo.png" 
    >    
 </h1>
-   
- 
+
 ### Descrição:
+Este repositório servirá para o desenvolvimento do nosso protótipo de aplicativo educativo ProtegeMais, o qual tem intuito de ensinar pessoas a como identificar indicadores de fraude ou golpe  durante uma conversa ou interagindo com tecnologia como e-mail, mensagens, etc.
 
 ### Ferramentas utilizadas: 
 - Python 3.9.10
