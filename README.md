@@ -23,6 +23,7 @@ Recomenda-se, para o melhor teste deste aplicativo, que seja utilizado uma virtu
 Link para o download: https://www.anaconda.com/download
 
 Depois de instalar, abra o prompt do  Anaconda e crie um ambiente virtual (preferencialmente) o python em sua versão 3.9, já que nos testes foi a versão que melhor se comportou e apresentou menos bugs.
+
 Comando para criar o ambiente via Anaconda Prompt
 ~~~
 conda create --name (nome do ambiente) python==3.9
