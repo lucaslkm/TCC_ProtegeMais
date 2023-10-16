@@ -5,6 +5,11 @@ ScreenManager:
     ForgetSenhaScreen:
     DashboardScreen: 
     CourseScreen:
+    CourseScreenQuest1:
+    CourseScreenQuest2:
+    CourseScreenQuest3:
+    CourseScreenQuest4:
+    CourseScreenQuest5:
 
 <SplashScreen>:
     name: 'splash'    
@@ -13,14 +18,7 @@ ScreenManager:
         Image:
             source: "images/logo.png"
             size_hint: .80, .80
-            pos_hint: {"center_x": .52, "center_y": .6}
-        
-        MDIconButton:
-            icon: "chevron-right"
-            user_font_size: "50sp"
-            pos_hint: {"center_x": .5, "center_y": .22}      
-            on_press: app.root.current = 'login'   
-                    
+            pos_hint: {"center_x": .52, "center_y": .6} 
 
         MDLabel:
             text: "ProtegeMais"   
@@ -39,6 +37,36 @@ ScreenManager:
             text_color: 0, 0, 0 
             font_size:"13sp"
             font_name: "Poppins-Regular.ttf"
+
+        Button:
+            text: "Login"
+            background_color: 0, 0, 0, 0
+            font_name: "Poppins-Medium.ttf"
+            size_hint: .79, .065
+            pos_hint: {"center_x": .5, "center_y": .27}   
+            on_press: app.root.current = 'login'      
+                
+            canvas.before:
+                Color: 
+                    rgb: 0, 0, 0, 1
+                RoundedRectangle:
+                    size: self.size
+                    pos: self.pos
+                    radius: [2]  
+        Button:
+            text: "Cadastre-se"
+            background_color: 0, 0, 0, 0
+            font_name: "Poppins-Medium.ttf"
+            size_hint: .79, .065
+            pos_hint: {"center_x": .5, "center_y": .18}
+            on_press: app.root.current = 'register' 
+            canvas.before:
+                Color: 
+                    rgb: 0, 0, 0, 1
+                RoundedRectangle:
+                    size: self.size
+                    pos: self.pos
+                    radius: [2]  
 
 <LoginScreen>:
     name: 'login'
@@ -70,7 +98,7 @@ ScreenManager:
             size_hint: .79, .08
             pos_hint: {"center_x": .5, "center_y": .55}   
             MDLabel:
-                text:"Usuário"
+                text:"E-mail"
                 font_size: "14sp"
                 font_name: "Poppins-Medium.ttf"
                 pos_hint: {"center_x": .5, "center_y": .9} 
@@ -125,7 +153,7 @@ ScreenManager:
                 
             canvas.before:
                 Color: 
-                    rgb: 25/255, 38/255, 35/255, 1
+                    rgb: 0, 0, 0, 1
                 RoundedRectangle:
                     size: self.size
                     pos: self.pos
@@ -139,7 +167,7 @@ ScreenManager:
             on_press: app.root.current = 'register' 
             canvas.before:
                 Color: 
-                    rgb: 120/255, 120/255, 120/255, 1
+                    rgb: 0, 0, 0, 1
                 RoundedRectangle:
                     size: self.size
                     pos: self.pos
@@ -150,7 +178,7 @@ ScreenManager:
             font_size: "15sp"
             pos_hint: {"center_x": .5, "center_y": .11}
             halign: "center"
-            color: 120/255, 120/255, 120/255, 1     
+            color: 0, 0, 0, 1     
             on_release: app.root.current = 'esqueci'
 
 <RegisterScreen>:
@@ -187,37 +215,37 @@ ScreenManager:
             size_hint: .79, .08
             pos_hint: {"center_x": .5, "center_y": .5}   
             MDLabel:
-                text:"Usuário"
+                text:"E-mail"
                 font_size: "14sp"
                 font_name: "Poppins-Medium.ttf"
                 pos_hint: {"center_x": .5, "center_y": 3.85} 
             TextInput:
-                id : usuario
+                id : username
                 size_hint_y: .75
                 font_name: "Poppins-Regular.ttf"
                 pos_hint: {"center_x": .49, "center_y": 3.4} 
                 background_color: 0, 0, 0, 0    
                 cursor_color: 0, 0, 0, 1
                 cursor_width: "2sp"
-                foreground_color: 120/255, 120/255, 120/255, 1
+                foreground_color: 0, 0, 0, 1
                 font_size: "17sp"
                 multiline: False
             MDFloatLayout:
                 pos_hint: {"center_x": .5, "center_y": 3}
                 size_hint_y: .03    
-                md_bg_color: 120/255, 120/255, 120/255, 1
+                md_bg_color: 0, 0, 0, 1
 
 
         MDFloatLayout:
             size_hint: .79, .08
             pos_hint: {"center_x": .5, "center_y": .35}  
             MDLabel:
-                text:"CPF"
+                text:"Senha"
                 font_size: "14sp"
                 font_name: "Poppins-Medium.ttf"
                 pos_hint: {"center_x": .5, "center_y": 3.3} 
             TextInput:
-                id: cpf
+                id: senha
                 size_hint_y: .75
                 font_name: "Poppins-Regular.ttf"
                 pos_hint: {"center_x": .49, "center_y": 2.85} 
@@ -229,19 +257,19 @@ ScreenManager:
             MDFloatLayout:
                 pos_hint: {"center_x": .5, "center_y": 2.55}
                 size_hint_y: .03    
-                md_bg_color: 120/255, 120/255, 120/255, 1    
+                md_bg_color: 0, 0, 0, 1    
 
         
         MDFloatLayout:
             size_hint: .79, .08
             pos_hint: {"center_x": .5, "center_y": .35}  
             MDLabel:
-                text:"Senha"
+                text:"Confirmar Senha"
                 font_size: "14sp"
                 font_name: "Poppins-Medium.ttf"
                 pos_hint: {"center_x": .5, "center_y": .9} 
             TextInput:
-                id: senha 
+                id: _confirma_senha 
                 size_hint_y: .75
                 font_name: "Poppins-Regular.ttf"
                 pos_hint: {"center_x": .49, "center_y": .4} 
@@ -254,7 +282,7 @@ ScreenManager:
             MDFloatLayout:
                 pos_hint: {"center_x": .5, "center_y": 0}
                 size_hint_y: .03    
-                md_bg_color: 120/255, 120/255, 120/255, 1            
+                md_bg_color: 0, 0, 0, 1            
 
         Button:
             text: "Cadastrar"
@@ -265,7 +293,7 @@ ScreenManager:
             on_press: app.root.current = 'login' 
             canvas.before:
                 Color: 
-                    rgb: 25/255, 38/255, 35/255, 1
+                    rgb: 0, 0, 0, 1
                 RoundedRectangle:
                     size: self.size
                     pos: self.pos
@@ -310,20 +338,20 @@ ScreenManager:
                 font_name: "Poppins-Medium.ttf"
                 pos_hint: {"center_x": .5, "center_y": 3.85} 
             TextInput:
-                id : cpf
+                id : email
                 size_hint_y: .75
                 font_name: "Poppins-Regular.ttf"
                 pos_hint: {"center_x": .49, "center_y": 3.4} 
                 background_color: 0, 0, 0, 0    
                 cursor_color: 0, 0, 0, 1
                 cursor_width: "2sp"
-                foreground_color: 120/255, 120/255, 120/255, 1
+                foreground_color: 0, 0, 0, 1
                 font_size: "17sp"
                 multiline: False
             MDFloatLayout:
                 pos_hint: {"center_x": .5, "center_y": 3}
                 size_hint_y: .03    
-                md_bg_color: 120/255, 120/255, 120/255, 1
+                md_bg_color: 0, 0, 0, 1
 
 
         MDFloatLayout:
@@ -347,7 +375,7 @@ ScreenManager:
             MDFloatLayout:
                 pos_hint: {"center_x": .5, "center_y": 2.55}
                 size_hint_y: .03    
-                md_bg_color: 120/255, 120/255, 120/255, 1    
+                md_bg_color: 0, 0, 0, 1    
 
         
         Button:
@@ -359,7 +387,7 @@ ScreenManager:
             on_press: app.root.current = 'login' 
             canvas.before:
                 Color: 
-                    rgb: 25/255, 38/255, 35/255, 1
+                    rgb: 0, 0, 0, 1
                 RoundedRectangle:
                     size: self.size
                     pos: self.pos
@@ -399,20 +427,20 @@ ScreenManager:
             spacing:dp(13)
             ElementCard:
                 text:"Email"
-                on_press: app.root.current = 'curso' 
+                on_press: app.root.current = 'curso_text' 
                 
             ElementCard:
                 text:"Sites Falsos"
-                on_press: app.root.current = 'curso' 
+                on_press: app.root.current = 'curso_text' 
                 
             ElementCard:
                 text:"Redes Sociais"
-                on_press: app.root.current = 'curso' 
+                on_press: app.root.current = 'curso_text' 
 
             ElementCard:
                 text:"Telefone e SMS"
-                on_press: app.root.current = 'curso'  
-
+                on_press: app.root.current = 'curso_text'  
+                
 <ElementCard@MDCard>:
     md_bg_color: 120/255, 173/255, 173/255, 1
     padding:dp(10)
@@ -441,14 +469,426 @@ ScreenManager:
             text:root.items_count
 
 <CourseScreen>:
-    name: 'curso'
-    MDBoxLayout:
-        spacing: 10
-        padding: 20
-        orientation: "horizontal"
-        Video:
-            state: "play"
-            options: {'eos': 'pause'}
-            allow_stretch: True
+    name: 'curso_text'
+    MDFloatLayout:
+        md_bg_color: 245, 245, 245,1
+        Image:
+            source: "images/logo.png"
+            size_hint: .50, .50
+            pos_hint: {"center_x": .52, "center_y": .8}
+        
+        MDIconButton:
+            icon: "chevron-right"
+            user_font_size: "50sp"
+            pos_hint: {"center_x": .8, "center_y": .12}      
+            on_press: app.root.current = 'curso_questao'   
+                    
+        MDLabel:
+            text: "A engenharia social é uma forma de manipulação psicológica que visa enganar pessoas para que revelem informações confidenciais, forneçam acesso a sistemas ou realizem ações específicas. É uma técnica comumente utilizada por criminosos e hackers para obter informações sensíveis ou acesso a sistemas protegidos."   
+            pos_hint: {"center_x": .5, "center_y": .57}       
+            halign: "center"
+            theme_text_color: "Custom"
+            text_color: 0, 0, 0
+            font_size:"11sp"
+            font_name: "Poppins-SemiBold.ttf"
+
+        MDLabel:
+            text: "A Engenharia Social por Telefone é uma estratégia de manipulação psicológica em que os golpistas usam chamadas telefônicas para enganar as vítimas. Eles se apresentam como pessoas de confiança, como representantes de empresas, autoridades ou técnicos de suporte, com o objetivo de obter informações pessoais sensíveis ou convencer as vítimas a realizar ações prejudiciais. Táticas como persuasão, intimidação e simpatia são frequentemente usadas. É de extrema importância verificar a autenticidade das chamadas, nunca compartilhar informações confidenciais e não seguir instruções suspeitas por telefone para evitar cair em armadilhas desse tipo."   
+            pos_hint: {"center_x": .5, "center_y": .3}       
+            halign: "center"
+            theme_text_color: "Custom"
+            text_color: 0, 0, 0
+            font_size:"11sp"
+            font_name: "Poppins-SemiBold.ttf"
+         
+<CourseScreenQuest1>:
+    name: 'curso_questao'
+    MDFloatLayout:
+        md_bg_color: 245, 245, 245,1
+        Image:
+            source: "images/logo.png"
+            size_hint: .50, .50
+            pos_hint: {"center_x": .52, "center_y": .8}
+        
+        MDLabel:
+            text: "O que é Engenharia Social por Telefone?"
+            size_hint: .8,0
+            pos_hint: {"center_x": .5, "center_y": .6}
+            halign: "center"
+            font_size: "19sp"
+            font_name: "Poppins-SemiBold.ttf"
+        ButtonCard:
+            id: opcoes
+            size_hint: .8, .1
+            pos_hint: {'center_x': .5,'center_y': .43}
+            md_bg_color: 241/255, 241/255, 241/255, 1
+            radius: [10]
+            padding: "10dp"
+            on_press: app.root.current = 'curso_questao2' 
+            MDFloatLayout:
+                MDLabel:
+                    id: texto1
+                    text: "Uma técnica para melhorar a qualidade de chamadas telefônicas"
+                    pos_hint: {'center_x': .5,'center_y': .5}
+                    font_size: "13sp"
+                    font_name: "Poppins-SemiBold.ttf"
+        ButtonCard:
+            id: opcoes2
+            size_hint: .8, .1
+            pos_hint: {'center_x': .5,'center_y': .32}
+            md_bg_color: 241/255, 241/255, 241/255, 1
+            radius: [10]
+            padding: "10dp"
+            on_press: app.root.current = 'curso_questao2'
+            MDFloatLayout:
+                MDLabel:
+                    id: texto2
+                    text: "Uma forma de comunicação por rádio"
+                    pos_hint: {'center_x': .5,'center_y': .5}
+                    font_size: "13sp"
+                    font_name: "Poppins-SemiBold.ttf"
+        ButtonCard:
+            id: opcoes3
+            size_hint: .8, .1
+            pos_hint: {'center_x': .5,'center_y': .21}
+            md_bg_color: 241/255, 241/255, 241/255, 1
+            radius: [10]
+            padding: "10dp"
+            on_press: app.root.current = 'curso_questao2'
+            MDFloatLayout:
+                MDLabel:
+                    id: texto3
+                    text: "Um serviço de atendimento ao cliente"
+                    pos_hint: {'center_x': .5,'center_y': .5}
+                    font_size: "13sp"
+                    font_name: "Poppins-SemiBold.ttf"
+        ButtonCard:
+            id: opcoes4
+            size_hint: .8, .1
+            pos_hint: {'center_x': .5,'center_y': .10}
+            md_bg_color: 241/255, 241/255, 241/255, 1
+            radius: [10]
+            padding: "11dp"
+            on_press: app.root.current = 'curso_questao2'
+            MDFloatLayout:
+                MDLabel:
+                    id: texto4
+                    text: "Uma técnica de manipulação psicológica em que os golpistas entram em contato por telefone para enganar as vítimas"
+                    pos_hint: {'center_x': .5,'center_y': .5}
+                    font_size: "11sp"
+                    font_name: "Poppins-SemiBold.ttf"
+
+<CourseScreenQuest2>:
+    name: 'curso_questao2'
+    MDFloatLayout:
+        md_bg_color: 245, 245, 245,1
+        Image:
+            source: "images/logo.png"
+            size_hint: .50, .50
+            pos_hint: {"center_x": .52, "center_y": .8}
+        
+        MDLabel:
+            text: "Como os golpistas costumam se apresentar na Engenharia Social por Telefone?"
+            size_hint: .8,0
+            pos_hint: {"center_x": .5, "center_y": .6}
+            halign: "center"
+            font_size: "16sp"
+            font_name: "Poppins-SemiBold.ttf"
+        ButtonCard:
+            id: opcoes
+            size_hint: .8, .1
+            pos_hint: {'center_x': .5,'center_y': .43}
+            md_bg_color: 241/255, 241/255, 241/255, 1
+            radius: [10]
+            padding: "10dp"
+            on_press: app.root.current = 'curso_questao3'
+            MDFloatLayout:
+                MDLabel:
+                    id: texto1
+                    text: "Como mágicos que oferecem truques de ilusionismo"
+                    pos_hint: {'center_x': .5,'center_y': .5}
+                    font_size: "13sp"
+                    font_name: "Poppins-SemiBold.ttf"
+        ButtonCard:
+            id: opcoes2
+            size_hint: .8, .1
+            pos_hint: {'center_x': .5,'center_y': .32}
+            md_bg_color: 241/255, 241/255, 241/255, 1
+            radius: [10]
+            padding: "10dp"
+            on_press: app.root.current = 'curso_questao3'
+            MDFloatLayout:
+                MDLabel:
+                    id: texto2
+                    text: "Como representantes de agências de viagens"
+                    pos_hint: {'center_x': .5,'center_y': .5}
+                    font_size: "13sp"
+                    font_name: "Poppins-SemiBold.ttf"
+        ButtonCard:
+            id: opcoes3
+            size_hint: .8, .1
+            pos_hint: {'center_x': .5,'center_y': .21}
+            md_bg_color: 241/255, 241/255, 241/255, 1
+            radius: [10]
+            padding: "10dp"
+            on_press: app.root.current = 'curso_questao3'
+            MDFloatLayout:
+                MDLabel:
+                    id: texto3
+                    text: "Como atletas famosos"
+                    pos_hint: {'center_x': .5,'center_y': .5}
+                    font_size: "13sp"
+                    font_name: "Poppins-SemiBold.ttf"
+        ButtonCard:
+            id: opcoes4
+            size_hint: .8, .1
+            pos_hint: {'center_x': .5,'center_y': .10}
+            md_bg_color: 241/255, 241/255, 241/255, 1
+            radius: [10]
+            padding: "11dp"
+            on_press: app.root.current = 'curso_questao3'
+            MDFloatLayout:
+                MDLabel:
+                    id: texto4
+                    text: "Como representantes de empresas ou autoridades legítimas"
+                    pos_hint: {'center_x': .5,'center_y': .5}
+                    font_size: "11sp"
+                    font_name: "Poppins-SemiBold.ttf"
+
+<CourseScreenQuest3>:
+    name: 'curso_questao3'
+    MDFloatLayout:
+        md_bg_color: 245, 245, 245,1
+        Image:
+            source: "images/logo.png"
+            size_hint: .50, .50
+            pos_hint: {"center_x": .52, "center_y": .8}
+        
+        MDLabel:
+            text: "Qual é o objetivo principal dos golpistas na Engenharia Social por Telefone?"
+            size_hint: .8,0
+            pos_hint: {"center_x": .5, "center_y": .6}
+            halign: "center"
+            font_size: "16sp"
+            font_name: "Poppins-SemiBold.ttf"
+        ButtonCard:
+            id: opcoes
+            size_hint: .8, .1
+            pos_hint: {'center_x': .5,'center_y': .43}
+            md_bg_color: 241/255, 241/255, 241/255, 1
+            radius: [10]
+            padding: "10dp"
+            on_press: app.root.current = 'curso_questao4'
+            MDFloatLayout:
+                MDLabel:
+                    id: texto1
+                    text: "Fazer amizades"
+                    pos_hint: {'center_x': .5,'center_y': .5}
+                    font_size: "15sp"
+                    font_name: "Poppins-SemiBold.ttf"
+        ButtonCard:
+            id: opcoes2
+            size_hint: .8, .1
+            pos_hint: {'center_x': .5,'center_y': .32}
+            md_bg_color: 241/255, 241/255, 241/255, 1
+            radius: [10]
+            padding: "10dp"
+            on_press: app.root.current = 'curso_questao4'
+            MDFloatLayout:
+                MDLabel:
+                    id: texto2
+                    text: "Promover produtos de beleza"
+                    pos_hint: {'center_x': .5,'center_y': .5}
+                    font_size: "15sp"
+                    font_name: "Poppins-SemiBold.ttf"
+        ButtonCard:
+            id: opcoes3
+            size_hint: .8, .1
+            pos_hint: {'center_x': .5,'center_y': .21}
+            md_bg_color: 241/255, 241/255, 241/255, 1
+            radius: [10]
+            padding: "10dp"
+            on_press: app.root.current = 'curso_questao4'
+            MDFloatLayout:
+                MDLabel:
+                    id: texto3
+                    text: "Obter informações confidenciais, como senhas ou números de cartão de crédito"
+                    pos_hint: {'center_x': .5,'center_y': .5}
+                    font_size: "15sp"
+                    font_name: "Poppins-SemiBold.ttf"
+        ButtonCard:
+            id: opcoes4
+            size_hint: .8, .1
+            pos_hint: {'center_x': .5,'center_y': .10}
+            md_bg_color: 241/255, 241/255, 241/255, 1
+            radius: [10]
+            padding: "11dp"
+            on_press: app.root.current = 'curso_questao4'
+            MDFloatLayout:
+                MDLabel:
+                    id: texto4
+                    text: "Compartilhar receitas de culinária"
+                    pos_hint: {'center_x': .5,'center_y': .5}
+                    font_size: "15sp"
+                    font_name: "Poppins-SemiBold.ttf"
+
+<CourseScreenQuest4>:
+    name: 'curso_questao4'
+    MDFloatLayout:
+        md_bg_color: 245, 245, 245,1
+        Image:
+            source: "images/logo.png"
+            size_hint: .50, .50
+            pos_hint: {"center_x": .52, "center_y": .8}
+        
+        MDLabel:
+            text: "Como os golpistas de Engenharia Social por Telefone costumam abordar as vítimas?"
+            size_hint: .8,0
+            pos_hint: {"center_x": .5, "center_y": .6}
+            halign: "center"
+            font_size: "16sp"
+            font_name: "Poppins-SemiBold.ttf"
+        ButtonCard:
+            id: opcoes
+            size_hint: .8, .1
+            pos_hint: {'center_x': .5,'center_y': .43}
+            md_bg_color: 241/255, 241/255, 241/255, 1
+            radius: [10]
+            padding: "10dp"
+            on_press: app.root.current = 'curso_questao5'
+            MDFloatLayout:
+                MDLabel:
+                    id: texto1
+                    text: "Fazendo piadas engraçadas"
+                    pos_hint: {'center_x': .5,'center_y': .5}
+                    font_size: "15sp"
+                    font_name: "Poppins-SemiBold.ttf"
+        ButtonCard:
+            id: opcoes2
+            size_hint: .8, .1
+            pos_hint: {'center_x': .5,'center_y': .32}
+            md_bg_color: 241/255, 241/255, 241/255, 1
+            radius: [10]
+            padding: "10dp"
+            on_press: app.root.current = 'curso_questao5'
+            MDFloatLayout:
+                MDLabel:
+                    id: texto2
+                    text: "Usando táticas de persuasão, como intimidação ou simpatia"
+                    pos_hint: {'center_x': .5,'center_y': .5}
+                    font_size: "15sp"
+                    font_name: "Poppins-SemiBold.ttf"
+        ButtonCard:
+            id: opcoes3
+            size_hint: .8, .1
+            pos_hint: {'center_x': .5,'center_y': .21}
+            md_bg_color: 241/255, 241/255, 241/255, 1
+            radius: [10]
+            padding: "10dp"
+            on_press: app.root.current = 'curso_questao5'
+            MDFloatLayout:
+                MDLabel:
+                    id: texto3
+                    text: "Pedindo conselhos amorosos"
+                    pos_hint: {'center_x': .5,'center_y': .5}
+                    font_size: "15sp"
+                    font_name: "Poppins-SemiBold.ttf"
+        ButtonCard:
+            id: opcoes4
+            size_hint: .8, .1
+            pos_hint: {'center_x': .5,'center_y': .10}
+            md_bg_color: 241/255, 241/255, 241/255, 1
+            radius: [10]
+            padding: "11dp"
+            on_press: app.root.current = 'curso_questao5'
+            MDFloatLayout:
+                MDLabel:
+                    id: texto4
+                    text: "Oferecendo descontos em roupas de grife"
+                    pos_hint: {'center_x': .5,'center_y': .5}
+                    font_size: "15sp"
+                    font_name: "Poppins-SemiBold.ttf"
+
+<CourseScreenQuest5>:
+    name: 'curso_questao5'
+    MDFloatLayout:
+        md_bg_color: 245, 245, 245,1
+        Image:
+            source: "images/logo.png"
+            size_hint: .50, .50
+            pos_hint: {"center_x": .52, "center_y": .8}
+        
+        MDLabel:
+            text: "Como você pode se proteger contra golpes de Engenharia Social por Telefone?"
+            size_hint: .8,0
+            pos_hint: {"center_x": .5, "center_y": .6}
+            halign: "center"
+            font_size: "16sp"
+            font_name: "Poppins-SemiBold.ttf"
+        ButtonCard:
+            id: opcoes
+            size_hint: .8, .1
+            pos_hint: {'center_x': .5,'center_y': .53}
+            md_bg_color: 241/255, 241/255, 241/255, 1
+            radius: [10]
+            padding: "10dp"
+            on_press: app.root.current = 'dashboard'
+            MDFloatLayout:
+                MDLabel:
+                    id: texto1
+                    text: "Atender todas as chamadas telefônicas"
+                    pos_hint: {'center_x': .5,'center_y': .5}
+                    font_size: "15sp"
+                    font_name: "Poppins-SemiBold.ttf"
+        ButtonCard:
+            id: opcoes2
+            size_hint: .8, .1
+            pos_hint: {'center_x': .5,'center_y': .42}
+            md_bg_color: 241/255, 241/255, 241/255, 1
+            radius: [10]
+            padding: "10dp"
+            on_press: app.root.current = 'dashboard'
+            MDFloatLayout:
+                MDLabel:
+                    id: texto2
+                    text: "Seguir todas as instruções dadas por quem ligar"
+                    pos_hint: {'center_x': .5,'center_y': .5}
+                    font_size: "15sp"
+                    font_name: "Poppins-SemiBold.ttf"
+        ButtonCard:
+            id: opcoes3
+            size_hint: .8, .2
+            pos_hint: {'center_x': .5,'center_y': .26}
+            md_bg_color: 241/255, 241/255, 241/255, 1
+            radius: [10]
+            padding: "10dp"
+            on_press: app.root.current = 'dashboard'
+            MDFloatLayout:
+                MDLabel:
+                    id: texto3
+                    text: "Verificar a identidade da pessoa que liga, não compartilhar informações pessoais por telefone e desconfiar de chamadas inesperadas que solicitam informações confidenciais"
+                    pos_hint: {'center_x': .5,'center_y': .5}
+                    font_size: "12sp"
+                    font_name: "Poppins-SemiBold.ttf"
+        ButtonCard:
+            id: opcoes4
+            size_hint: .8, .1
+            pos_hint: {'center_x': .5,'center_y': .1}
+            md_bg_color: 241/255, 241/255, 241/255, 1
+            radius: [10]
+            padding: "11dp"
+            on_press: app.root.current = 'dashboard'
+            MDFloatLayout:
+                MDLabel:
+                    id: texto4
+                    text: "Dar informações pessoais a qualquer pessoa que ligue pedindo-as"
+                    pos_hint: {'center_x': .5,'center_y': .5}
+                    font_size: "15sp"
+                    font_name: "Poppins-SemiBold.ttf"
+                
+                
             
 
+                
+                
+            
