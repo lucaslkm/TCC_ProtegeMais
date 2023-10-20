@@ -30,7 +30,6 @@ class ForgetSenhaScreen(Screen):
 class DashboardScreen(Screen):
    pass
 
-
 class CourseScreen(Screen):
    pass
     
