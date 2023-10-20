@@ -36,7 +36,7 @@ conda activate ( nome do ambiente)
 ~~~
 
 ### Para testar a aplicação :
-Dentro do ambiente virtual, no prórpio Anaconda prompt, primeiro instale as dependências utilizadas com o comando: 
+Dentro do ambiente virtual, no próprio Anaconda prompt, primeiro instale as dependências utilizadas com o comando: 
 ~~~
 pip install -r requirements.txt
 ~~~
