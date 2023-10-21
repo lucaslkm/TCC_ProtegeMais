@@ -103,7 +103,7 @@ ScreenManager:
                 font_name: "Poppins-Medium.ttf"
                 pos_hint: {"center_x": .5, "center_y": .9} 
             TextInput:
-                id: username
+                id: email
                 size_hint_y: .75
                 font_name: "Poppins-Regular.ttf"
                 pos_hint: {"center_x": .49, "center_y": .4} 
@@ -149,7 +149,7 @@ ScreenManager:
             font_name: "Poppins-Medium.ttf"
             size_hint: .79, .065
             pos_hint: {"center_x": .5, "center_y": .27}   
-            on_press: app.root.current = 'dashboard'      
+            on_release: root.login()       
                 
             canvas.before:
                 Color: 
@@ -220,7 +220,7 @@ ScreenManager:
                 font_name: "Poppins-Medium.ttf"
                 pos_hint: {"center_x": .5, "center_y": 3.85} 
             TextInput:
-                id : username
+                id : email_registro
                 size_hint_y: .75
                 font_name: "Poppins-Regular.ttf"
                 pos_hint: {"center_x": .49, "center_y": 3.4} 
@@ -245,7 +245,7 @@ ScreenManager:
                 font_name: "Poppins-Medium.ttf"
                 pos_hint: {"center_x": .5, "center_y": 3.3} 
             TextInput:
-                id: senha
+                id: senha_registro
                 size_hint_y: .75
                 font_name: "Poppins-Regular.ttf"
                 pos_hint: {"center_x": .49, "center_y": 2.85} 
@@ -269,7 +269,7 @@ ScreenManager:
                 font_name: "Poppins-Medium.ttf"
                 pos_hint: {"center_x": .5, "center_y": .9} 
             TextInput:
-                id: _confirma_senha 
+                id: confirma_senha 
                 size_hint_y: .75
                 font_name: "Poppins-Regular.ttf"
                 pos_hint: {"center_x": .49, "center_y": .4} 
@@ -278,7 +278,7 @@ ScreenManager:
                 cursor_width: "2sp"
                 font_size: "17sp"
                 multiline: False
-                password: True
+                
             MDFloatLayout:
                 pos_hint: {"center_x": .5, "center_y": 0}
                 size_hint_y: .03    
@@ -290,7 +290,7 @@ ScreenManager:
             font_name: "Poppins-Medium.ttf"
             size_hint: .79, .065
             pos_hint: {"center_x": .5, "center_y": .2}
-            on_press: app.root.current = 'login' 
+            on_release: root.cadastro() 
             canvas.before:
                 Color: 
                     rgb: 0, 0, 0, 1
