@@ -1,3 +1,5 @@
 kivy
 kivymd
 pyrebase4
+python-firebase
+requests
