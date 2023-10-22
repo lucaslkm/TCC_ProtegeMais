@@ -338,7 +338,7 @@ ScreenManager:
                 font_name: "Poppins-Medium.ttf"
                 pos_hint: {"center_x": .5, "center_y": 3.85} 
             TextInput:
-                id : email
+                id : email_redefinir
                 size_hint_y: .75
                 font_name: "Poppins-Regular.ttf"
                 pos_hint: {"center_x": .49, "center_y": 3.4} 
@@ -352,31 +352,6 @@ ScreenManager:
                 pos_hint: {"center_x": .5, "center_y": 3}
                 size_hint_y: .03    
                 md_bg_color: 0, 0, 0, 1
-
-
-        MDFloatLayout:
-            size_hint: .79, .08
-            pos_hint: {"center_x": .5, "center_y": .35}  
-            MDLabel:
-                text:"Nova senha"
-                font_size: "14sp"
-                font_name: "Poppins-Medium.ttf"
-                pos_hint: {"center_x": .5, "center_y": 3.3} 
-            TextInput:
-                id: novasenha
-                size_hint_y: .75
-                font_name: "Poppins-Regular.ttf"
-                pos_hint: {"center_x": .49, "center_y": 2.85} 
-                background_color: 0, 0, 0, 0    
-                cursor_color: 0, 0, 0, 1
-                cursor_width: "2sp"
-                font_size: "17sp"
-                multiline: False
-            MDFloatLayout:
-                pos_hint: {"center_x": .5, "center_y": 2.55}
-                size_hint_y: .03    
-                md_bg_color: 0, 0, 0, 1    
-
         
         Button:
             text: "Redefinir senha"
@@ -384,7 +359,7 @@ ScreenManager:
             font_name: "Poppins-Medium.ttf"
             size_hint: .79, .065
             pos_hint: {"center_x": .5, "center_y": .35}
-            on_press: app.root.current = 'login' 
+            on_release: root.troca_de_senha() 
             canvas.before:
                 Color: 
                     rgb: 0, 0, 0, 1

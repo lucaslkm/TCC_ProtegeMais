@@ -30,7 +30,6 @@ screen = ScreenManager()
 class SplashScreen(Screen):
     pass
 
-
 class LoginScreen(MDScreen):
     def callback_dash(self, *args):
         MDApp.get_running_app().root.current = "dashboard"
@@ -38,8 +37,15 @@ class LoginScreen(MDScreen):
     def login(self):
       email = self.ids.email.text
       password = self.ids.senha.text
-      if auth.sign_in_with_email_and_password(email,password):
+      try:
+         auth.sign_in_with_email_and_password(email,password)
          Clock.schedule_once(self.callback_dash, 3)
+      except: 
+         self.ids.email.text = "Credenciais incorretas"
+         self.ids.senha.text = ""
+         
+         MDApp.get_running_app().root.current = "login"
+
 
 class RegisterScreen(MDScreen): 
       def callback(self, *args):
@@ -50,11 +56,56 @@ class RegisterScreen(MDScreen):
         password = self.ids.senha_registro.text
         password_confirm = self.ids.confirma_senha.text
         if password == password_confirm and "@" in email and ".com" in email and len(password) >= 6:
-            if auth.create_user_with_email_and_password(email,password):
-               Clock.schedule_once(self.callback, 3)
+         try:
+            auth.create_user_with_email_and_password(email,password)
+            Clock.schedule_once(self.callback, 3)
+         except:
+            MDApp.get_running_app().root.current = "register"
+            self.ids.email_registro.text = "Email Cadastrado"
+            self.ids.senha_registro.text = ""
+            self.ids.confirma_senha.text = ""
+
+        else:
+            if not email or "@" not in email or ".com" not in email:
+                self.ids.email_registro.focus = True
+                self.ids.email_registro.text = "Credenciais incorretas"
+                self.ids.senha_registro.text = ""
+                self.ids.confirma_senha.text = ""
+                MDApp.get_running_app().root.current = "register"
+                
+
+            elif len(password) < 6:
+                self.ids.confirma_senha.text = ""
+                self.ids.senha_registro.text = ""
+                self.ids.senha_registro.focus = True
+                MDApp.get_running_app().root.current = "register"
+
+            elif  len(password_confirm) < 6:
+                self.ids.confirma_senha.text = ""
+                self.ids.senha_registro.text = ""
+                self.ids.senha_registro.focus = True
+                MDApp.get_running_app().root.current = "register"
+
+            elif password != password_confirm:
+                if password:
+                    self.ids.senha_registro.focus = True
+                    self.ids.confirma_senha.text = ""
+                    self.ids.senha_registro.text = "Senhas diferentes"
+                    MDApp.get_running_app().root.current = "register"
+                else:
+                    self.ids.confirma_senha.focus = True
+                    self.ids.confirma_senha.text = "Senhas diferentes"
+                    MDApp.get_running_app().root.current = "register"
          
 class ForgetSenhaScreen(MDScreen):
-  pass
+  def callback(self, *args):
+        MDApp.get_running_app().root.current = "login"
+        
+  def troca_de_senha(self):
+      email = self.ids.email_redefinir.text
+
+      if auth.send_password_reset_email(email):
+         Clock.schedule_once(self.callback, 3)
 
 class DashboardScreen(Screen):
    pass
