@@ -326,8 +326,7 @@ ScreenManager:
             halign:"center"
             font_size: "16sp"
             font_name: "Poppins-SemiBold.ttf"
-            pos_hint: {"center_x": .5, "center_y": .15}    
-            id: lbredfsenha           
+            pos_hint: {"center_x": .5, "center_y": .15}              
 
         MDFloatLayout:
             size_hint: .79, .08
@@ -490,7 +489,8 @@ ScreenManager:
             md_bg_color: 241/255, 241/255, 241/255, 1
             radius: [10]
             padding: "10dp"
-            on_press: app.root.current = 'curso_questao2' 
+            on_press: app.root.current = 'curso_questao2'
+            on_release: root.troca_de_senha()  
             MDFloatLayout:
                 MDLabel:
                     id: texto1

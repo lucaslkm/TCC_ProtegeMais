@@ -3,7 +3,7 @@ from kivymd.uix.screen import MDScreen
 from kivymd.uix.card import MDCard
 from kivy.uix.behaviors import ButtonBehavior
 from kivy.lang import Builder
-from kivy.uix.screenmanager import Screen, ScreenManager
+from kivy.uix.screenmanager import Screen
 from kivy.core.window import Window
 from kivy.clock import Clock
 import pyrebase
@@ -24,9 +24,6 @@ auth = firebase.auth()
 
 
 Window.size = (325, 580)
-
-screen = ScreenManager()
-
 class SplashScreen(Screen):
     pass
 
@@ -68,7 +65,7 @@ class RegisterScreen(MDScreen):
         else:
             if not email or "@" not in email or ".com" not in email:
                 self.ids.email_registro.focus = True
-                self.ids.email_registro.text = "Credenciais incorretas"
+                self.ids.email_registro.text = "E-mail inválido"
                 self.ids.senha_registro.text = ""
                 self.ids.confirma_senha.text = ""
                 MDApp.get_running_app().root.current = "register"
@@ -76,12 +73,12 @@ class RegisterScreen(MDScreen):
 
             elif len(password) < 6:
                 self.ids.confirma_senha.text = ""
-                self.ids.senha_registro.text = ""
+                self.ids.senha_registro.text = "Senha deve ser maior"
                 self.ids.senha_registro.focus = True
                 MDApp.get_running_app().root.current = "register"
 
             elif  len(password_confirm) < 6:
-                self.ids.confirma_senha.text = ""
+                self.ids.confirma_senha.text = "Senhas diferentes"
                 self.ids.senha_registro.text = ""
                 self.ids.senha_registro.focus = True
                 MDApp.get_running_app().root.current = "register"
@@ -112,7 +109,6 @@ class DashboardScreen(Screen):
 
 class CourseScreen(Screen):
    pass
-    
 class CourseScreenQuest1(Screen):
    pass
 class CourseScreenQuest2(Screen):
